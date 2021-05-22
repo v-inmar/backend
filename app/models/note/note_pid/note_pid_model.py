@@ -2,6 +2,10 @@ import datetime
 from app import db
 
 class NotePIDModel(db.Model):
+    """
+    Creates a data access object for NotePIDModel
+    This will hold the public identification of a particular note, hence value is unique
+    """
     __tablename__ = 'note_pid_model'
     id = db.Column(db.BigInteger, primary_key=True, autoincrement=True)
     value = db.Column(db.String(32), nullable=False, unique=True)
