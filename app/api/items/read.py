@@ -1,5 +1,8 @@
-from flask import make_response
+from flask import (make_response)
+from app.utils.decoators.is_request_valid import is_request_valid
 
+
+@is_request_valid('get')
 def read_single(pid):
     """
     Return Response object with JSON object and status code
@@ -8,7 +11,7 @@ def read_single(pid):
     """
     return make_response({"msg": "OK", "payload": {"pid": pid}}, 200)
 
-
+@is_request_valid('get')
 def read_all():
     """
     Return Response object with JSON object and status code
