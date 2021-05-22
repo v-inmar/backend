@@ -19,3 +19,4 @@ venv/
 assets/*
 !assets/.gitkeep
 private.txt
+db_config.py
