@@ -1,0 +1,24 @@
+from app import app
+from flask import make_response
+
+
+# Create an error handler for 404 error
+@app.errorhandler(404)
+def not_found(error):
+    """
+    Return Response object with a JSON object and status code
+    JSON object contains 'msg' key for message
+    @param error Error value to be inserted in the logs (not implement here)
+    """
+    return make_response({"msg": "File Not Found"}, 404)
+
+
+# Create an error handler for 500 error
+@app.errorhandler(500)
+def server_error(error):
+    """
+    Return Response object with a JSON object and status code
+    JSON object contains 'msg' key for message
+    @param error Error value to be inserted in the logs (not implement here)
+    """
+    return make_response({"msg": "Server Error"}, 500)
