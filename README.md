@@ -1,10 +1,16 @@
 # backend
-Flask server backend serving REST API for frontend testing
+###### Python Flask Backend Server
 
+This is a Python Flask application backend server the will serve REST API
 
+To run:
+```
 pip install -r requirements.txt
-
 python run.py
+```
 
-: assets folder
-    To store any images, files, etc that the application will use
+## Tech Stack
+- Docker
+- Ubuntu 20.04 LTS
+- MySQL Database Server
+- Flask Microframework
