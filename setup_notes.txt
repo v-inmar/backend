@@ -63,4 +63,4 @@ Ommit 'sudo' when using docker container
 
  == git setup ==
 : sudo apt install git
-    install git for versioning
+    install git for version control and source code management
