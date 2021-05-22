@@ -1,0 +1,66 @@
+ == docker setup == 
+docker run -it -p 5000:5000 -p 3309:3306 --name fbts -v ~/Desktop/flask-backend-test-server/:/fbts ubuntu:latest
+: docker
+    command to use docker cli
+: run
+    run docker container command
+: -it
+    interactive docker run flag
+: -p
+    port mapping <host:container>
+: --name
+    name the docker container
+: -v
+    expose volume (directory) and map it with container directory (it will create the directory inside container)
+: ubuntu:latest
+    download image (if not present) to create the container
+
+Below: Perform within the container (ubuntu)
+Ommit 'sudo' when using docker container
+
+ == mysql setup ==
+: sudo apt update
+    perform machine update
+: sudo apt install mysql_server
+    install mysql server
+: sudo mysql_secure_installation
+    perform a secure installation of mysql server
+    will be presented with options to choose from
+    Note: perform 'service mysql restart' if connection was not accepted
+: cd /etc/mysql/mysql.conf.d
+    change directory of the mysql configuration
+    Note: this is default ubuntu, directory might be different for others
+: sudo nano mysqld.cnf
+    edit bind-address property to have value of 0.0.0.0
+    to enable remote access to the mysql server
+    Note: security measures (ssl, etc) must be taken when allowing remote access to the mysql server
+    create a user that has limited privileges to the database
+    this is ok for development and local
+: <no specific command here, just a general reminder>
+    login to the mysql server and create database and user to access database
+
+
+ == python dependencies setup ==
+: sudo apt update
+    perform machine update
+
+: sudo apt install python3-pip python3-dev build-essential libssl-dev libffi-dev python3-setuptools -y
+    install all python dependencies needed to use python
+    Note: python3 is preinstalled on ubuntu 20.04
+
+ == virtual environment setup ==
+: sudo apt install python3-venv
+    install virtual environment
+
+: python3 -m venv <virtual_environment_name>
+    must be inside the desired directory i.e. cd <my_app_directory>
+    create virtual environment with a copy of python installed in the machine
+    <virtual_environment_name> choose any name
+
+: source <virtual_environment_name>/bin/activate
+    command is unix bsd only
+
+
+ == git setup ==
+: sudo apt install git
+    install git for versioning
