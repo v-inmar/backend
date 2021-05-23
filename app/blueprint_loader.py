@@ -1,4 +1,5 @@
-from app import app
+# from app import app
+from app.index import app
 
 # Register the items blueprint into the app
 from app.api.items.blueprint import items_bp

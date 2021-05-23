@@ -1,5 +1,5 @@
 import datetime
-from app import db
+from app.index import db
 
 class NotePIDModel(db.Model):
     """

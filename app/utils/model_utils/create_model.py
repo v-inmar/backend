@@ -1,5 +1,5 @@
 from sqlalchemy.exc import SQLAlchemyError
-from app import db
+from app.index import db
 
 
 def create(*args, **kwargs):
