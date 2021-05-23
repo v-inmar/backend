@@ -21,7 +21,7 @@ flask db upgrade
 Note:
 ```
 If chosen flask run to run the server, it is adviced to follow the documentation
-https://flask.palletsprojects.com/en/1.1.x/cli/
+https://flask.palletsprojects.com/en/2.0.x/cli/
 ```
 
 
