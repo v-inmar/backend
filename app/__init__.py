@@ -17,3 +17,6 @@ from app import blueprint_loader
 
 # Load error handler
 from app import errorhandler_loader
+
+# Load models
+from app import model_loader
