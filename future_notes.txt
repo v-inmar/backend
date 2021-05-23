@@ -1,0 +1,4 @@
+ == OOP Goals ==
+: Blueprint files can be turned into a class
+: Each api routes can be class of their own, instantiating and passing to blueprint objects
+: Each folder utils i.e. model utils can also be turned into classes
