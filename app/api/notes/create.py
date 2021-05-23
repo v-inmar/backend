@@ -2,6 +2,7 @@ from flask import (make_response, abort, request)
 from werkzeug.exceptions import (HTTPException, BadRequest, Unauthorized, InternalServerError)
 
 from app.utils.decoator_utils.is_request_valid import is_request_valid
+from app.controllers.notes_controllers.create_controller import create_note
 
 
 @is_request_valid('post')
@@ -12,5 +13,12 @@ def create():
     """
     payload = request.json['payload']
     text = payload['text']
+    if not text or len(text) < 1:
+        abort(400)
     
-    return make_response({"msg": "Created", "payload": text}, 201)
+    # Create note ensuring text is sliced to the max valid length
+    note_dict = create_note(text[:65000])
+    if not note_dict:
+        abort(500)
+    
+    return make_response({"msg": "Created", "payload": note_dict}, 201)

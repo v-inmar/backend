@@ -1,6 +1,8 @@
 import datetime
 from app.index import db
 
+from app.utils.model_utils.read_model import read_single
+
 class NoteModel(db.Model):
     """
     Creates a data access object for NoteModel
@@ -12,3 +14,27 @@ class NoteModel(db.Model):
 
     def __init__(self):
         self.timestamp = datetime.datetime.utcnow()
+    
+
+    def get_text(self):
+        """
+        Return NoteTextModel object
+        """
+        # Import inside function to avoid ciruclar importing
+        from app.models.note.note_text.linker_model import NoteTextLinkerModel
+        linker_obj = read_single(NoteTextLinkerModel, (NoteTextLinkerModel.note_id==self.id))
+        if linker_obj:
+            return linker_obj.get_text()
+        return None
+
+    def get_pid(self):
+        """
+        Return NotePIDModel object
+        """
+        # Import inside function to avoid ciruclar importing
+        from app.models.note.note_pid.linker_model import NotePIDLinkerModel
+        linker_obj = read_single(NotePIDLinkerModel, (NotePIDLinkerModel.note_id==self.id))
+        if linker_obj:
+            return linker_obj.get_pid()
+        return None
+

@@ -20,3 +20,4 @@ assets/*
 !assets/.gitkeep
 private.txt
 __init__.py
+test.py
