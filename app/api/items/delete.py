@@ -1,5 +1,5 @@
 from flask import make_response
-from app.utils.decoators.is_request_valid import is_request_valid
+from app.utils.decoator_utils.is_request_valid import is_request_valid
 
 
 @is_request_valid('delete')
