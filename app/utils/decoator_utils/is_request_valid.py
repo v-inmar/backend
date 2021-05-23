@@ -4,6 +4,8 @@ from functools import wraps
 # NOTE: This can also check for JWT token in the future when auth is implemented
 # or any API keys, etc
 
+import traceback
+
 def is_request_valid(method):
     """
     Return decorator that allows parameter to be passed in the decorator
@@ -20,9 +22,11 @@ def is_request_valid(method):
             """
             A wrapper function that performs the necessary request checks
             """
+
+            # TODO: Refactor and wrap in a try/except block with matching http exception
             if not request.method:
                 abort(400)
-            
+        
             if str(request.method).lower() != str(method).lower():
                 abort(405)
             
@@ -36,6 +40,9 @@ def is_request_valid(method):
                 
                 if "payload" not in request.json:
                     abort(400)
+                
+                if not request.json['payload']:
+                    abort(400)
 
 
             elif req_method == 'get' or req_method == 'delete':
@@ -48,17 +55,7 @@ def is_request_valid(method):
                 abort(405)
 
             return func(*args, **kwargs)
+            
         return wrapper
     return decor
 
-
-# def decorator_factory(argument):
-#     def decorator(function):
-#         def wrapper(*args, **kwargs):
-#             funny_stuff()
-#             something_with_argument(argument)
-#             result = function(*args, **kwargs)
-#             more_funny_stuff()
-#             return result
-#         return wrapper
-#     return decorator
