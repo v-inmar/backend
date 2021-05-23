@@ -21,3 +21,4 @@ assets/*
 private.txt
 __init__.py
 test.py
+migrations
