@@ -10,6 +10,16 @@ pip install -r requirements.txt
 python run.py
 ```
 
+For database migration:
+```
+export FLASK_APP=run.py
+flask db init
+flask db migrate
+flask db upgrade
+```
+
+
+
 ## Tech Stack
 - Docker
 - Ubuntu 20.04 LTS
