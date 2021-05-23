@@ -1,5 +1,6 @@
-# backend
-###### Python Flask Backend Server
+## -- UNDER CONSTRUCTION --
+
+# Python Flask Backend Server
 
 This is a Python Flask application backend server the will serve REST API
 
