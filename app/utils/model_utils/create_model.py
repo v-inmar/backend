@@ -4,10 +4,9 @@ from app.index import db
 
 def create(*args, **kwargs):
     """
-    Performs CREATE action
+    Return model instance that had been created
     @param args[0] Model class
     @param kwargs Named arguments i.e. something=value
-    return: Model instance
     """
     try:
 
