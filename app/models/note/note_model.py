@@ -38,3 +38,19 @@ class NoteModel(db.Model):
             return linker_obj.get_pid()
         return None
 
+
+    def get_text_linker(self):
+        """
+        Return NoteTextLinkerModel object
+        """
+        # Import inside function to avoid ciruclar importing
+        from app.models.note.note_text.linker_model import NoteTextLinkerModel
+        return read_single(NoteTextLinkerModel, (NoteTextLinkerModel.note_id==self.id))
+    
+    def get_pid_linker(self):
+        """
+        Return NoteTextLinkerModel object
+        """
+        # Import inside function to avoid ciruclar importing
+        from app.models.note.note_pid.linker_model import NotePIDLinkerModel
+        return read_single(NotePIDLinkerModel, (NotePIDLinkerModel.note_id==self.id))
