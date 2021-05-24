@@ -12,6 +12,9 @@ def create():
     JSON object contains 'msg' key for message and 'payload' for item information
     """
     payload = request.json['payload']
+    if 'text' not in payload:
+        abort(400)
+    
     text = payload['text']
     if not text or len(text) < 1:
         abort(400)
