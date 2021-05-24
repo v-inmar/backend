@@ -9,7 +9,7 @@ from app.models.note.note_text.note_text_model import NoteTextModel
 
 def delete_note(pid):
     """
-    Return a dictionary object of the passed in pid
+    Return True after successful deletion
     @param pid String text public id of the note
     """
     try:
@@ -56,7 +56,7 @@ def delete_note(pid):
         db.session.delete(note_obj)
 
         db.session.commit()
-        return {"pid":pid}
+        return True
     except (SQLAlchemyError, TypeError, ValueError):
         db.session.rollback()
         return False
