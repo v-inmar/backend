@@ -47,10 +47,12 @@ def delete_note(pid):
         # Delete from linker objects first
         db.session.delete(pid_linker_obj)
         db.session.delete(text_linker_obj)
+        db.session.flush()
 
         # Delete child objects
         db.session.delete(pid_obj)
         db.session.delete(text_obj)
+        db.session.flush()
 
         # Delete root object
         db.session.delete(note_obj)
