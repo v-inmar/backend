@@ -4,7 +4,7 @@ from app.models.note.note_pid.note_pid_model import NotePIDModel
 from app.models.note.note_pid.linker_model import NotePIDLinkerModel
 from app.models.note.note_model import NoteModel
 
-def read_single_model(pid):
+def read_single_note(pid):
     """
     Return a dictionary object with the corresponding note details 
     that macthes the pid value that was passed in 
@@ -45,7 +45,7 @@ def read_single_model(pid):
         return False
 
 
-def read_all_model():
+def read_all_note():
     """
     Return a list of dictionary of all note objects
     """
