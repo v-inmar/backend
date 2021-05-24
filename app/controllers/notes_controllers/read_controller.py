@@ -39,7 +39,8 @@ def read_single_note(pid):
         
         return {
             "pid": pid_obj.value,
-            "text": text_obj.value
+            "text": text_obj.value,
+            "timestamp": note_obj.timestamp
         }
     except (SQLAlchemyError, TypeError, ValueError):
         return False
