@@ -32,6 +32,12 @@ def is_request_valid(method):
             
             if not request.headers:
                 abort(400)
+
+            if 'accept' not in request.headers:
+                abort(400)
+            
+            if request.headers['accept'].lower() != 'application/json':
+                abort(400)
             
             req_method = str(request.method).lower()
             if req_method == 'post' or req_method == 'put':

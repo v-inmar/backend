@@ -1,5 +1,7 @@
-from flask import (make_response)
+from flask import (make_response, abort)
 from app.utils.decoator_utils.is_request_valid import is_request_valid
+
+from app.controllers.notes_controllers.read_controller import read_single_model
 
 
 @is_request_valid('get')
@@ -9,7 +11,14 @@ def read_single(pid):
     JSON object contains 'msg' key for message and 'payload' for note information
     @param pid String public id of a note
     """
-    return make_response({"msg": "OK", "payload": {"pid": pid}}, 200)
+    result = read_single_model(pid.lower())
+    if result is None:
+        abort(404)
+    
+    if result is False:
+        abort(500)
+    
+    return make_response({"msg": "OK", "payload": result}, 200)
 
 @is_request_valid('get')
 def read_all():
