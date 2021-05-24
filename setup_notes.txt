@@ -1,5 +1,5 @@
  == docker setup == 
-docker run -it -p 5000:5000 -p 3309:3306 --name fbts -v ~/Desktop/flask-backend-test-server/:/fbts ubuntu:latest
+docker run -it -p 5000:5000 -p 3309:3306 --name <container name> -v ~/Desktop/<directory>/:/<directory name> ubuntu:latest
 : docker
     command to use docker cli
 : run
